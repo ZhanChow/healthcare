@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Small Changes, Real Protection — Cancer Prevention Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1c1810; --cream: #faf7f2; --warm-white: #fff9f4;
+    --sage: #3d7a55; --sage-light: #eaf3ee; --sage-mid: #b8d4c2;
+    --rust: #b85238; --rust-light: #faeee9;
+    --gold: #b8891e; --gold-light: #fdf4dc;
+    --muted: #6b6050; --rule: #e0d8ce; --card: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+
+  .masthead { background: var(--ink); color: var(--cream); text-align: center; padding: 13px 24px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; }
+
+  .hero { background: var(--warm-white); border-bottom: 1px solid var(--rule); padding: 72px 24px 60px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 45% at 15% 85%, rgba(61,122,85,0.08) 0%, transparent 65%), radial-gradient(ellipse 45% 55% at 85% 15%, rgba(184,137,30,0.06) 0%, transparent 65%); pointer-events: none; }
+  .hero-kicker { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 22px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  .hero-kicker::before, .hero-kicker::after { content: ''; width: 36px; height: 1px; background: var(--sage); opacity: 0.5; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); max-width: 780px; margin: 0 auto 18px; }
+  .hero h1 em { font-style: italic; color: var(--sage); }
+  .hero-sub { font-size: 1.1rem; font-weight: 300; color: var(--muted); font-style: italic; max-width: 520px; margin: 0 auto 16px; }
+  .hero-meta { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 36px; }
+  .hero-stat { display: inline-flex; align-items: center; gap: 14px; background: var(--gold-light); border: 1px solid rgba(184,137,30,0.25); border-radius: 6px; padding: 14px 24px; }
+  .hero-stat .number { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .hero-stat .label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--ink); line-height: 1.45; text-align: left; max-width: 200px; }
+  .hero-stat .label strong { color: var(--rust); display: block; }
+
+  .progress-wrap { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); padding: 8px 24px; display: flex; align-items: center; gap: 14px; }
+  .progress-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .progress-bar-bg { flex: 1; height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: var(--sage); border-radius: 2px; transition: width 0.2s ease; }
+  .progress-pct { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--sage); font-weight: 600; min-width: 36px; text-align: right; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .lead { font-size: 1.2rem; font-weight: 300; line-height: 1.75; border-left: 3px solid var(--sage); padding-left: 22px; margin: 52px 0 36px; }
+  p { margin-bottom: 1.35em; }
+  a { color: var(--sage); text-decoration-color: rgba(61,122,85,0.35); text-underline-offset: 3px; transition: color 0.2s; }
+  a:hover { color: var(--rust); }
+
+  .section-break { display: flex; align-items: center; gap: 16px; margin: 56px 0 36px; }
+  .section-break::before, .section-break::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .section-break span { color: var(--sage); font-size: 1.2rem; opacity: 0.5; }
+  .section-eyebrow { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 20px; }
+
+  .callout { background: var(--sage-light); border-left: 4px solid var(--sage); border-radius: 0 6px 6px 0; padding: 18px 22px; margin: 28px 0; font-size: 0.93rem; line-height: 1.7; }
+  .callout strong { color: var(--sage); }
+  .callout-gold { background: var(--gold-light); border-left-color: var(--gold); }
+  .callout-gold strong { color: var(--gold); }
+  .pull-quote { font-family: 'Playfair Display', serif; font-size: clamp(1.25rem, 2.8vw, 1.65rem); font-style: italic; font-weight: 400; color: var(--sage); line-height: 1.45; text-align: center; padding: 32px 0; border-top: 2px solid var(--sage-mid); border-bottom: 2px solid var(--sage-mid); margin: 44px 0; }
+
+  .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 28px 0; }
+  .risk-card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; transition: box-shadow 0.2s, transform 0.2s; }
+  .risk-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .risk-card .card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .risk-card .card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .risk-card .card-body { font-size: 0.84rem; line-height: 1.6; color: var(--muted); margin-bottom: 0; }
+  .risk-card .card-stat { display: inline-block; background: var(--rust-light); color: var(--rust); font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 20px; margin-bottom: 8px; }
+
+  .quiz-block { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 44px 0; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+  .quiz-badge { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; background: var(--sage); color: white; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px; }
+  .quiz-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .quiz-subtitle { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-bottom: 20px; }
+  .quiz-question { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; font-family: 'DM Sans', sans-serif; }
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .quiz-option { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; border: 1.5px solid var(--rule); border-radius: 8px; cursor: pointer; transition: all 0.18s; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: var(--ink); background: var(--cream); text-align: left; width: 100%; line-height: 1.45; }
+  .quiz-option:hover { border-color: var(--sage); background: var(--sage-light); }
+  .quiz-option.correct { border-color: var(--sage); background: var(--sage-light); color: var(--sage); font-weight: 600; pointer-events: none; }
+  .quiz-option.incorrect { border-color: var(--rust); background: var(--rust-light); color: var(--rust); pointer-events: none; }
+  .quiz-option.disabled { pointer-events: none; opacity: 0.5; }
+  .quiz-option.correct.disabled, .quiz-option.incorrect.disabled { opacity: 1; }
+  .quiz-letter { min-width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .quiz-feedback { padding: 12px 16px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; line-height: 1.5; display: none; margin-bottom: 10px; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.right { background: var(--sage-light); color: var(--sage); border: 1px solid var(--sage-mid); }
+  .quiz-feedback.wrong { background: var(--rust-light); color: var(--rust); border: 1px solid rgba(184,82,56,0.25); }
+  .quiz-next { display: none; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--sage); background: var(--sage-light); border: 1.5px solid var(--sage-mid); border-radius: 6px; padding: 9px 18px; cursor: pointer; transition: background 0.18s; }
+  .quiz-next:hover { background: var(--sage-mid); }
+  .quiz-next.show { display: inline-block; }
+  .quiz-score { text-align: center; padding: 16px; display: none; }
+  .quiz-score.show { display: block; }
+  .quiz-score .score-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--sage); }
+  .quiz-score .score-lbl { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .quiz-score .score-msg { font-size: 0.95rem; font-style: italic; color: var(--ink); margin-top: 10px; }
+
+  .reflection { background: var(--gold-light); border: 1px solid rgba(184,137,30,0.2); border-radius: 10px; padding: 24px 26px; margin: 40px 0; }
+  .reflection-header { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .reflection-q { font-family: 'Playfair Display', serif; font-size: 1.08rem; font-style: italic; color: var(--ink); margin-bottom: 14px; line-height: 1.5; }
+  .reflection textarea { width: 100%; min-height: 80px; background: rgba(255,255,255,0.7); border: 1.5px solid rgba(184,137,30,0.3); border-radius: 6px; padding: 10px 13px; font-family: 'Source Serif 4', serif; font-size: 0.92rem; color: var(--ink); resize: vertical; outline: none; transition: border-color 0.18s; line-height: 1.6; }
+  .reflection textarea:focus { border-color: var(--gold); }
+  .reflection textarea::placeholder { color: rgba(107,96,80,0.5); font-style: italic; }
+  .reflection-save { margin-top: 8px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--gold); background: rgba(184,137,30,0.1); border: 1.5px solid rgba(184,137,30,0.3); border-radius: 5px; padding: 7px 16px; cursor: pointer; transition: background 0.18s; }
+  .reflection-save:hover { background: rgba(184,137,30,0.2); }
+  .reflection-saved { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--sage); margin-left: 10px; display: none; }
+
+  .checklist-block { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 24px 26px; margin: 40px 0; }
+  .checklist-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .checklist-sub { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); margin-bottom: 16px; font-style: italic; }
+  .checklist-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1.5px solid var(--rule); border-radius: 7px; cursor: pointer; transition: all 0.18s; user-select: none; }
+  .checklist-item:hover { border-color: var(--sage-mid); background: var(--sage-light); }
+  .checklist-item.checked { border-color: var(--sage); background: var(--sage-light); }
+  .check-box { min-width: 20px; height: 20px; border: 2px solid var(--rule); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; transition: all 0.18s; font-size: 11px; color: transparent; }
+  .checklist-item.checked .check-box { background: var(--sage); border-color: var(--sage); color: white; }
+  .check-text { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; color: var(--ink); line-height: 1.45; }
+  .check-text strong { display: block; font-weight: 600; margin-bottom: 1px; }
+  .check-text span { font-size: 0.78rem; color: var(--muted); }
+  .checklist-item.checked .check-text { color: var(--sage); }
+  .checklist-progress { margin-top: 14px; font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); }
+  .checklist-bar { height: 3px; background: var(--rule); border-radius: 2px; margin-top: 5px; overflow: hidden; }
+  .checklist-bar-fill { height: 100%; width: 0%; background: var(--sage); border-radius: 2px; transition: width 0.3s ease; }
+
+  .screening-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; font-family: 'DM Sans', sans-serif; font-size: 0.84rem; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .screening-table th { background: var(--ink); color: var(--cream); padding: 11px 14px; text-align: left; font-weight: 500; letter-spacing: 0.06em; font-size: 10px; text-transform: uppercase; }
+  .screening-table td { padding: 11px 14px; border-top: 1px solid var(--rule); vertical-align: top; line-height: 1.45; color: var(--ink); }
+  .screening-table tr:nth-child(even) td { background: var(--cream); }
+  .screening-table .tag { display: inline-block; background: var(--sage-light); color: var(--sage); font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 12px; letter-spacing: 0.05em; white-space: nowrap; }
+
+  .cta-block { background: var(--ink); color: var(--cream); border-radius: 12px; padding: 40px 32px; text-align: center; margin: 56px 0 44px; }
+  .cta-block h2 { color: var(--cream); font-size: 1.7rem; margin-bottom: 12px; }
+  .cta-block p { color: rgba(250,247,242,0.75); font-size: 0.95rem; max-width: 460px; margin: 0 auto 22px; font-style: italic; }
+  .cta-btn { display: inline-block; background: var(--sage); color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; padding: 13px 28px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  .cta-btn:hover { background: #2f6043; color: white; }
+
+  .references { border-top: 1px solid var(--rule); padding: 44px 0; margin-top: 20px; }
+  .references h2 { font-size: 1.1rem; margin-bottom: 18px; }
+  .ref-list { list-style: none; counter-reset: refs; }
+  .ref-list li { counter-increment: refs; display: flex; gap: 10px; font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 10px; }
+  .ref-list li::before { content: counter(refs) "."; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--sage); min-width: 18px; padding-top: 1px; }
+  .ref-list a { color: var(--sage); font-size: 0.82rem; word-break: break-all; }
+
+  footer { background: var(--ink); color: rgba(250,247,242,0.5); text-align: center; padding: 22px; font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.05em; }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 40px; }
+    .risk-grid { grid-template-columns: 1fr; }
+    .quiz-block, .reflection, .checklist-block { padding: 20px 16px; }
+    .cta-block { padding: 28px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">Singapore &amp; Asia Pacific · Cancer Prevention Guide · 2026</div>
+
+<section class="hero">
+  <div class="hero-kicker">Cancer Prevention</div>
+  <h1>Small Changes,<br><em>Real Protection</em></h1>
+  <p class="hero-sub">What you can do — starting today — to lower your cancer risk</p>
+  <p class="hero-meta">Evidence-based guidance for Singapore and the Asia Pacific region</p>
+  <div class="hero-stat">
+    <span class="number">1 in 4</span>
+    <span class="label"><strong>Singapore residents</strong>will develop cancer by age 75 — and many of these cases are preventable.</span>
+  </div>
+</section>
+
+<div class="progress-wrap">
+  <span class="progress-label">Reading progress</span>
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<main>
+<div class="container">
+
+  <div class="lead fade-in">
+    Whatever brought you here — a family diagnosis, a doctor's visit, a quiet worry — you're doing the right thing.
+  </div>
+
+  <p class="fade-in">In Singapore, <a href="https://www.nccs.com.sg/your-care/about-cancer/cancer-statistics" target="_blank"><strong>over 91,000 cancers were diagnosed between 2019–2023</strong></a> — roughly 50 people per day. Cancer is our leading cause of death. Yet a significant share of cases are linked to factors within our control. That's not a reason for guilt. It's a reason for hope.</p>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-block fade-in">
+    <span class="quiz-badge">Quick Check</span>
+    <div class="quiz-title">Test your instincts before we begin</div>
+    <div class="quiz-subtitle">No pressure — it just helps the information stick.</div>
+
+    <div id="q1-wrap">
+      <div class="quiz-question">Q1 of 3 — What share of cancers in East Asian men are estimated to be preventable?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="answerQ('q1','A','C')"><span class="quiz-letter">A</span>Around 20%</button>
+        <button class="quiz-option" onclick="answerQ('q1','B','C')"><span class="quiz-letter">B</span>Around 35%</button>
+        <button class="quiz-option" onclick="answerQ('q1','C','C')"><span class="quiz-letter">C</span>Over 50% — higher than any other region</button>
+        <button class="quiz-option" onclick="answerQ('q1','D','C')"><span class="quiz-letter">D</span>Less than 10% — genetics dominate</button>
+      </div>
+      <div class="quiz-feedback" id="q1-fb"></div>
+      <button class="quiz-next" id="q1-nxt" onclick="nextQ('q1-wrap','q2-wrap','q1-nxt')">Next →</button>
+    </div>
+
+    <div id="q2-wrap" style="display:none">
+      <div class="quiz-question">Q2 of 3 — What is the #1 cancer among Singapore men?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="answerQ('q2','A','A')"><span class="quiz-letter">A</span>Prostate cancer</button>
+        <button class="quiz-option" onclick="answerQ('q2','B','A')"><span class="quiz-letter">B</span>Lung cancer</button>
+        <button class="quiz-option" onclick="answerQ('q2','C','A')"><span class="quiz-letter">C</span>Colorectal cancer</button>
+        <button class="quiz-option" onclick="answerQ('q2','D','A')"><span class="quiz-letter">D</span>Liver cancer</button>
+      </div>
+      <div class="quiz-feedback" id="q2-fb"></div>
+      <button class="quiz-next" id="q2-nxt" onclick="nextQ('q2-wrap','q3-wrap','q2-nxt')">Next →</button>
+    </div>
+
+    <div id="q3-wrap" style="display:none">
+      <div class="quiz-question">Q3 of 3 — True or false: occasional drinking carries no meaningful cancer risk.</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="answerQ('q3','A','B')"><span class="quiz-letter">A</span>True — only heavy drinking is a concern</button>
+        <button class="quiz-option" onclick="answerQ('q3','B','B')"><span class="quiz-letter">B</span>False — even moderate drinking raises cancer risk</button>
+      </div>
+      <div class="quiz-feedback" id="q3-fb"></div>
+      <button class="quiz-next" id="q3-nxt" onclick="showScore()">See my results →</button>
+    </div>
+
+    <div class="quiz-score" id="quiz-score">
+      <div class="score-num" id="score-num">0/3</div>
+      <div class="score-lbl">correct answers</div>
+      <div class="score-msg" id="score-msg"></div>
+    </div>
+  </div>
+
+  <!-- PART 1 -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <div class="section-eyebrow fade-in">Part One</div>
+  <h2 class="fade-in">The Six Risk Factors That Matter Most</h2>
+
+  <p class="fade-in">According to WHO, over 50% of cancers in East Asian men may be preventable — the highest rate globally. Everyday habits drive much of that risk. Here are the six most significant modifiable factors in our region:</p>
+
+  <div class="risk-grid">
+    <div class="risk-card fade-in">
+      <div class="card-icon">🚬</div>
+      <div class="card-stat">SE Asia: highest tobacco use globally</div>
+      <div class="card-title">Tobacco</div>
+      <div class="card-body">Tobacco use in SE Asia (26.5%) exceeds the global average. In Singapore, lung cancer is a top-3 killer. Cigars, vaping, and secondhand smoke all carry real risk.</div>
+    </div>
+    <div class="risk-card fade-in">
+      <div class="card-icon">🍔</div>
+      <div class="card-stat">Colorectal: #2 cancer in SG (both sexes)</div>
+      <div class="card-title">Diet & Body Weight</div>
+      <div class="card-body">Colorectal cancer — closely tied to diet — is Singapore's 2nd most common cancer. Rising rates reflect Asia's shift toward processed, Western-style eating.</div>
+    </div>
+    <div class="risk-card fade-in">
+      <div class="card-icon">🍷</div>
+      <div class="card-stat">Liver cancer: among highest rates in Asia</div>
+      <div class="card-title">Alcohol</div>
+      <div class="card-body">A known Group 1 carcinogen linked to 7 cancer types. Liver cancer rates in Asia are among the world's highest — alcohol is a significant contributor alongside Hepatitis B.</div>
+    </div>
+    <div class="risk-card fade-in">
+      <div class="card-icon">☀️</div>
+      <div class="card-stat">High UV year-round in Singapore</div>
+      <div class="card-title">UV Radiation</div>
+      <div class="card-body">Singapore's equatorial location means high UV exposure 365 days a year. Skin cancer rates are rising. Sunscreen (SPF 30+) and shade make a measurable difference.</div>
+    </div>
+    <div class="risk-card fade-in">
+      <div class="card-icon">🛋️</div>
+      <div class="card-stat">150 min/week is the target</div>
+      <div class="card-title">Physical Inactivity</div>
+      <div class="card-body">Sedentary lifestyles are a growing concern across urban Asia. Regular movement reduces inflammation and regulates cancer-promoting hormones.</div>
+    </div>
+    <div class="risk-card fade-in">
+      <div class="card-icon">🦠</div>
+      <div class="card-stat">HBV endemic across much of Asia</div>
+      <div class="card-title">Infections (HPV, HBV)</div>
+      <div class="card-body">Hepatitis B — endemic across parts of Asia — drives high liver cancer rates regionally. HPV causes cervical and throat cancers. Vaccines protect against both.</div>
+    </div>
+  </div>
+
+  <div class="reflection fade-in">
+    <div class="reflection-header">✍️ A moment to reflect</div>
+    <div class="reflection-q">"Which of these six risk areas feels most relevant to your life right now?"</div>
+    <textarea placeholder="You don't need to share this with anyone. Writing it down can make it feel more real and actionable..." id="r1"></textarea><br>
+    <button class="reflection-save" onclick="saveR('r1','s1')">Save note ✓</button>
+    <span class="reflection-saved" id="s1">Saved ✓</span>
+  </div>
+
+  <!-- TOBACCO -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <h2 class="fade-in">Tobacco: Still the Biggest Risk</h2>
+
+  <p class="fade-in">Tobacco causes roughly <strong>30% of all cancer deaths globally</strong>. In Singapore, lung cancer is the leading cause of cancer death in men and 3rd most common in women. Cigars, vaping, and secondhand smoke all carry real risk.</p>
+
+  <div class="pull-quote fade-in">"Quitting is the single most impactful lifestyle change a person can make for their cancer risk — at any age."</div>
+
+  <p class="fade-in">Cancer risk starts falling almost immediately after quitting. After 10 years, lung cancer risk drops to roughly half. <a href="https://health.ucdavis.edu/blog/cultivating-health/7-lifestyle-tips-to-reduce-your-cancer-risk/2024/02" target="_blank">Medication and behavioural support significantly improve success rates</a>. There is no shame in needing help.</p>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-block fade-in">
+    <span class="quiz-badge">Did You Know?</span>
+    <div class="quiz-title">A quick question on quitting</div>
+    <div id="qsm-wrap">
+      <div class="quiz-question">How soon after quitting smoking does cancer risk begin to drop?</div>
+      <div class="quiz-options">
+        <button class="quiz-option" onclick="answerSingle('qsm','A','C')"><span class="quiz-letter">A</span>After about 10 years — the body takes a long time to repair</button>
+        <button class="quiz-option" onclick="answerSingle('qsm','B','C')"><span class="quiz-letter">B</span>Only if you quit before age 40</button>
+        <button class="quiz-option" onclick="answerSingle('qsm','C','C')"><span class="quiz-letter">C</span>Almost immediately — and it keeps improving over years</button>
+        <button class="quiz-option" onclick="answerSingle('qsm','D','C')"><span class="quiz-letter">D</span>It doesn't — the damage from smoking is permanent</button>
+      </div>
+      <div class="quiz-feedback" id="qsm-fb"></div>
+    </div>
+  </div>
+
+  <!-- DIET -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <h2 class="fade-in">Diet & Body Weight</h2>
+
+  <p class="fade-in"><a href="https://www.nccs.com.sg/your-care/about-cancer/cancer-statistics" target="_blank">Colorectal cancer is Singapore's 2nd most common cancer</a> for both men and women, strongly tied to diet. As Asian societies shift toward processed food, rates are rising — even in people under 50. Small shifts compound into real protection:</p>
+
+  <div class="callout fade-in">
+    <strong>Evidence-backed dietary shifts for our region:</strong><br><br>
+    🥦 <strong>More plants</strong> — fruits, vegetables, legumes, and wholegrains consistently lower risk<br><br>
+    🥩 <strong>Less processed meat</strong> — WHO classifies it as a Group 1 carcinogen; limit char siu, luncheon meat, sausages<br><br>
+    🫒 <strong>Eat like your grandparents</strong> — fish, tofu, vegetables, brown rice; minimise processed and packaged food
+  </div>
+
+  <div class="reflection fade-in">
+    <div class="reflection-header">✍️ A moment to reflect</div>
+    <div class="reflection-q">"One small dietary change this week — what would feel realistic for you?"</div>
+    <textarea placeholder="Think small and specific. 'Add vegetables to dinner three times a week' is more powerful than 'eat healthier'..." id="r2"></textarea><br>
+    <button class="reflection-save" onclick="saveR('r2','s2')">Save note ✓</button>
+    <span class="reflection-saved" id="s2">Saved ✓</span>
+  </div>
+
+  <!-- ALCOHOL -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <h2 class="fade-in">Alcohol</h2>
+
+  <p class="fade-in">Alcohol is a <strong>Group 1 carcinogen</strong> linked to breast, colon, liver, and oesophageal cancers. Asia's liver cancer rates are among the world's highest — alcohol and Hepatitis B are key drivers. Crucially, <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/cancer-prevention/art-20044816" target="_blank">even moderate, regular drinking raises risk</a>. There is no safe level.</p>
+
+  <div class="callout callout-gold fade-in">
+    <strong>If cutting back feels difficult:</strong> Start with a few alcohol-free days per week. If you feel dependent, speaking with a GP is a brave and important step.
+  </div>
+
+  <!-- SCREENING -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <div class="section-eyebrow fade-in">Part Two</div>
+  <h2 class="fade-in">Screening: Catch It Early</h2>
+
+  <p class="fade-in">Screening catches cancer before symptoms appear — when treatment is most effective. <a href="https://www.singaporecancersociety.org.sg/learn-about-cancer/cancer-basics/common-types-of-cancer-in-singapore.html" target="_blank">In Singapore, the Healthier SG Screening programme</a> (formerly Screen for Life) subsidises key cancer screenings for eligible citizens and PRs.</p>
+
+  <table class="screening-table fade-in">
+    <thead>
+      <tr><th>Cancer</th><th>Test</th><th>Singapore Guidance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Colorectal</strong> <span class="tag">#2 in SG</span></td><td>FIT stool test or colonoscopy</td><td>Age 50+; subsidised under Healthier SG Screening</td></tr>
+      <tr><td><strong>Breast</strong> <span class="tag">#1 in SG women</span></td><td>Mammogram</td><td>Women 40–69; subsidised at selected polyclinics</td></tr>
+      <tr><td><strong>Cervical</strong></td><td>Pap smear or HPV test</td><td>Women 25–69; every 3 years; subsidised</td></tr>
+      <tr><td><strong>Lung</strong> <span class="tag">#3 in SG</span></td><td>Low-dose CT scan</td><td>Heavy smokers 50–80; discuss with your GP</td></tr>
+      <tr><td><strong>Liver</strong></td><td>Ultrasound + AFP test</td><td>Hepatitis B carriers; recommended every 6 months</td></tr>
+      <tr><td><strong>Prostate</strong> <span class="tag">#1 in SG men</span></td><td>PSA blood test</td><td>Men 50+; discuss benefits/risks with doctor first</td></tr>
+    </tbody>
+  </table>
+
+  <!-- CHECKLIST -->
+  <div class="checklist-block fade-in">
+    <div class="checklist-title">✅ Your Personal Prevention Checklist</div>
+    <div class="checklist-sub">Tick what you've already done — notice what to prioritise next.</div>
+    <ul class="checklist-items">
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Smoke-free or actively working on quitting</strong><span>The single highest-impact action for tobacco users</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Eating vegetables or fruit daily</strong><span>Aim for variety and colour across the week</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Physically active at least 3 days per week</strong><span>Even 30-min walks count toward the 150-min target</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Limiting alcohol or alcohol-free</strong><span>Any reduction in intake lowers cancer risk</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Using sunscreen regularly (SPF 30+)</strong><span>Especially important in Singapore's year-round UV</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Up to date on cancer screenings</strong><span>Check your schedule via Healthier SG or your GP</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Vaccinated against HPV and/or Hepatitis B</strong><span>Critical for liver and cervical cancer prevention in Asia</span></div></li>
+      <li class="checklist-item" onclick="toggleCheck(this)"><div class="check-box">✓</div><div class="check-text"><strong>Know your family's cancer history</strong><span>Can significantly change your screening timeline</span></div></li>
+    </ul>
+    <div class="checklist-progress">
+      <span id="check-count">0 of 8 actions</span>
+      <div class="checklist-bar"><div class="checklist-bar-fill" id="check-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section-break fade-in"><span>❧</span></div>
+  <div class="section-eyebrow fade-in">A closing thought</div>
+  <h2 class="fade-in">Start With One Thing</h2>
+
+  <p class="fade-in">Even as cancer incidence has risen, <a href="https://www.health365.sg/cancer-in-singapore-rate-increases-for-younger-moh-report/" target="_blank">Singapore's cancer death rate per 100,000 has been falling</a>. Prevention and early detection are working. You can be part of that story.</p>
+
+  <div class="pull-quote fade-in">"You don't have to overhaul your life. You just have to take one step. Then another."</div>
+
+  <div class="reflection fade-in">
+    <div class="reflection-header">✍️ One last reflection</div>
+    <div class="reflection-q">"One concrete step you commit to this week — however small?"</div>
+    <textarea placeholder="Be specific. When, what, how. This is just for you." id="r3"></textarea><br>
+    <button class="reflection-save" onclick="saveR('r3','s3')">I commit to this ✓</button>
+    <span class="reflection-saved" id="s3">Saved ✓</span>
+  </div>
+
+  <div class="cta-block fade-in">
+    <h2>Book Your Screening</h2>
+    <p>Eligible Singapore Citizens can access subsidised cancer screenings via the Healthier SG Screening programme.</p>
+    <a href="https://www.healthhub.sg/programmes/screen_for_life" target="_blank" class="cta-btn">Book via HealthHub →</a>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="references fade-in">
+    <h2>References</h2>
+    <ol class="ref-list">
+      <li>National Cancer Centre Singapore. <em>Cancer Statistics 2019–2023.</em> <a href="https://www.nccs.com.sg/your-care/about-cancer/cancer-statistics" target="_blank">nccs.com.sg/your-care/about-cancer/cancer-statistics</a></li>
+      <li>Singapore Cancer Society. <em>Common Types of Cancer in Singapore.</em> Singapore Cancer Registry Annual Report 2023. <a href="https://www.singaporecancersociety.org.sg/learn-about-cancer/cancer-basics/common-types-of-cancer-in-singapore.html" target="_blank">singaporecancersociety.org.sg</a></li>
+      <li>Health365. <em>Cancer in Singapore 2025 Statistics — MOH Report.</em> <a href="https://www.health365.sg/cancer-in-singapore-rate-increases-for-younger-moh-report/" target="_blank">health365.sg</a></li>
+      <li>World Health Organization. <em>Four in ten cancer cases could be prevented globally.</em> February 2026. <a href="https://www.who.int/news/item/03-02-2026-four-in-ten-cancer-cases-could-be-prevented-globally" target="_blank">who.int</a></li>
+      <li>OECD/WHO. <em>Health at a Glance: Asia/Pacific 2024.</em> <a href="https://www.oecd.org/en/publications/health-at-a-glance-asia-pacific-2024_51fed7e9-en.html" target="_blank">oecd.org</a></li>
+      <li>Mayo Clinic. <em>Cancer Prevention: 7 Tips to Reduce Your Risk.</em> <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/cancer-prevention/art-20044816" target="_blank">mayoclinic.org</a></li>
+      <li>UC Davis Health. <em>7 Lifestyle Tips to Reduce Your Cancer Risk.</em> Feb 2024. <a href="https://health.ucdavis.edu/blog/cultivating-health/7-lifestyle-tips-to-reduce-your-cancer-risk/2024/02" target="_blank">health.ucdavis.edu</a></li>
+      <li>Singapore Ministry of Health / Health Promotion Board. <em>Healthier SG Screening Programme (formerly Screen for Life).</em> <a href="https://www.healthhub.sg/programmes/screen_for_life" target="_blank">healthhub.sg/programmes/screen_for_life</a></li>
+    </ol>
+  </div>
+
+</div>
+</main>
+
+<footer>This article is for general health information only and does not constitute medical advice. Always consult a qualified healthcare provider for personal medical decisions. · March 2026</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const pct = Math.round((window.scrollY / (d.scrollHeight - d.clientHeight)) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+  });
+
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  let quizScore = 0;
+  const qData = {
+    q1: { correct: 'C', right: 'Correct! WHO estimates over 57% of cancers in East Asian men may be preventable — the highest share of any region globally. This makes prevention especially powerful in our context.', wrong: 'Actually, WHO estimates over 57% of cancers in East Asian men may be preventable — higher than any other region. Lifestyle habits play a massive role here.' },
+    q2: { correct: 'A', right: 'Correct. Prostate cancer is the most commonly diagnosed cancer in Singapore men (18% of male cases), followed by colorectal and lung. Awareness and screening are key.', wrong: 'Actually prostate cancer is #1 in Singapore men, accounting for 18% of all male cancer cases (2019–2023, NCCS data), followed by colorectal and lung.' },
+    q3: { correct: 'B', right: 'Correct. Alcohol is a WHO Group 1 carcinogen. Even moderate, regular drinking raises cancer risk — particularly for breast and liver cancer. There is no completely safe level.', wrong: 'False. Even moderate alcohol consumption raises cancer risk — especially for breast and liver cancer. Alcohol is classified as a Group 1 carcinogen with no safe lower limit.' },
+    qsm: { correct: 'C', right: 'Correct! Benefits begin almost immediately — within months, cancer risk starts falling. After 10 years without cigarettes, lung cancer risk drops to roughly half that of a current smoker. It is truly never too late.', wrong: 'The answer is C. Benefits start almost right away. Lung cancer risk is roughly halved after 10 smoke-free years. It is never too late to quit.' }
+  };
+
+  function answerQ(qid, chosen, correct) {
+    const wrap = document.getElementById(qid + '-wrap');
+    const opts = wrap.querySelectorAll('.quiz-option');
+    const fb = document.getElementById(qid + '-fb');
+    const nxt = document.getElementById(qid + '-nxt');
+    const right = chosen === correct;
+    if (right) quizScore++;
+    opts.forEach(btn => {
+      btn.classList.add('disabled');
+      const l = btn.querySelector('.quiz-letter').textContent;
+      if (l === correct) btn.classList.add('correct');
+      else if (l === chosen && !right) btn.classList.add('incorrect');
+    });
+    fb.textContent = right ? qData[qid].right : qData[qid].wrong;
+    fb.className = 'quiz-feedback show ' + (right ? 'right' : 'wrong');
+    nxt.classList.add('show');
+  }
+
+  function answerSingle(qid, chosen, correct) {
+    const wrap = document.getElementById(qid + '-wrap');
+    const opts = wrap.querySelectorAll('.quiz-option');
+    const fb = document.getElementById(qid + '-fb');
+    const right = chosen === correct;
+    opts.forEach(btn => {
+      btn.classList.add('disabled');
+      const l = btn.querySelector('.quiz-letter').textContent;
+      if (l === correct) btn.classList.add('correct');
+      else if (l === chosen && !right) btn.classList.add('incorrect');
+    });
+    fb.textContent = right ? qData[qid].right : qData[qid].wrong;
+    fb.className = 'quiz-feedback show ' + (right ? 'right' : 'wrong');
+  }
+
+  function nextQ(hideId, showId, btnId) {
+    document.getElementById(hideId).style.display = 'none';
+    document.getElementById(btnId).classList.remove('show');
+    document.getElementById(showId).style.display = 'block';
+  }
+
+  function showScore() {
+    document.getElementById('q3-wrap').style.display = 'none';
+    document.getElementById('quiz-score').classList.add('show');
+    document.getElementById('score-num').textContent = quizScore + '/3';
+    const msgs = [
+      "That's okay — this is exactly what articles like this are for. Keep reading, and take notes as you go.",
+      "Good instincts! A couple of things may have surprised you. Those are the ones worth sitting with.",
+      "Excellent. You're well-informed. The most important next step is turning knowledge into action."
+    ];
+    document.getElementById('score-msg').textContent = msgs[quizScore];
+  }
+
+  function saveR(tid, sid) {
+    if (!document.getElementById(tid).value.trim()) return;
+    const el = document.getElementById(sid);
+    el.style.display = 'inline';
+    setTimeout(() => el.style.display = 'none', 3000);
+  }
+
+  function toggleCheck(item) {
+    item.classList.toggle('checked');
+    const total = document.querySelectorAll('.checklist-item').length;
+    const done = document.querySelectorAll('.checklist-item.checked').length;
+    document.getElementById('check-count').textContent = done + ' of ' + total + ' actions';
+    document.getElementById('check-bar').style.width = ((done / total) * 100) + '%';
+  }
+</script>
+</body>
+</html>
